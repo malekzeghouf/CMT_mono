@@ -9,20 +9,20 @@ spring:
 
   #optional means if we can not find config do not fail use the local
   config:
-    import: configserver:${url-config-server}
+    import: optional:configserver:${url-config-server}
 
 
 
-#management:
-#  endpoint:
-#    health:
-#      show-details: always
-#    metrics:
-#      enable: true
-#  endpoints:
-#    web:
-#      exposure:
-#        include: '*'
+  #management:
+  #  endpoint:
+  #    health:
+  #      show-details: always
+  #    metrics:
+  #      enable: true
+  #  endpoints:
+  #    web:
+  #      exposure:
+  #        include: '*'
   #promethus exposing metrics
 
 #    web:
@@ -44,3 +44,7 @@ spring:
 #    payment-url: http://localhost:8222/api/v1/payment
 #debug: true
 #    product-url: http://localhost:8222/api/v1/product
+
+
+server:
+  port: 8091

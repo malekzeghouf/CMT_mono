@@ -1,9 +1,13 @@
 
 email-service:
-    sentfrom: rabbehs@gmail.com
+  sentfrom: rabbehs@gmail.com
 
 spring:
-    config:
-        import: configserver:http://localhost:8888
-    application:
-        name: notification-service
+  config:
+    import: optional:configserver:http://localhost:8888
+  application:
+    name: notification-service
+
+server:
+  port: 8040
+

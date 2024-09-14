@@ -4,8 +4,10 @@ spring:
   application:
     name: discovery-service
 
-#optional means if we can not find config do not fail use the local
+  #optional means if we can not find config do not fail use the local
   config:
     import: optional:configserver:${url-config-server}
 
 
+server:
+  port: 8761
