@@ -1,3 +1,20 @@
+application:
+  config:
+    customer-url: http://localhost:8222/api/v1/customer
+    payment-url: http://localhost:8222/api/v1/payment
+    product-url: http://localhost:8222/api/v1/product
+
+server:
+  port: 8050
+
+
+management:
+  metrics:
+    tags:
+      application: product-service
+
+
+
 
 spring:
   #  data:
@@ -13,7 +30,6 @@ spring:
   #      password:
   #      timeout: 2000
 
-
   application:
     name: product-service
   config:
@@ -21,11 +37,36 @@ spring:
 
 
 
-application:
-  config:
-    customer-url: http://localhost:8222/api/v1/customer
-    payment-url: http://localhost:8222/api/v1/payment
-    product-url: http://localhost:8222/api/v1/product
+  datasource:
+    url: jdbc:postgresql://192.168.43.10:5432/product
+    username: seif
+    password: seif
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    baseline-description: "init"
+    baseline-version: 0
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
 
-server:
-  port: 8050
+  data:
+    redis:
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 1000
+      host: 192.168.43.10
+      port: 6379
+      password:
+      timeout: 2000
+
+
+
