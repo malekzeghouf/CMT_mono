@@ -1,5 +1,7 @@
 url-config-server: http://localhost:8888
 
+server:
+  port: 8091
 
 
 #Name of app is important will be used
@@ -46,5 +48,3 @@ spring:
 #    product-url: http://localhost:8222/api/v1/product
 
 
-server:
-  port: 8091
